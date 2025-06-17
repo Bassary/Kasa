@@ -1,0 +1,17 @@
+// VARIABLE **********************
+
+$main-color : #FF6060;
+$second-color: #ffffff;
+$third-color: #000000;
+$background-card-color: #F6F6F6;
+
+
+// MIXIN ***************
+
+@mixin text-nav-footer-large() {
+    font-size: 24px;
+}
+
+@mixin text-nav-footer-small() {
+    font-size: 12px;
+}

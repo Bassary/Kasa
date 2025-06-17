@@ -1,0 +1,30 @@
+@import './main.scss';
+
+.not-found-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+
+    h1 {
+        font-size: 288px;
+        color: $main-color;
+    }
+
+    p {
+        color: $main-color;
+        font-size: 36px;
+    }
+
+    a {
+        color: $third-color;
+        font-size: 18px;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+    }
+}
