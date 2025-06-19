@@ -1,0 +1,21 @@
+@import './main.scss';
+
+.banner,
+.banner__img,
+.banner__shadow--title {
+    @include banner
+}
+
+.banner {
+    position: relative;
+
+    &__img {
+        object-fit: cover;
+    }
+
+    &__shadow--title {
+        background-color: rgba(0, 0, 0, 0.52);
+        color: $second-color;
+        position: absolute;
+    }
+}

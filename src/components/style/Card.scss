@@ -1,0 +1,30 @@
+@import './main.scss';
+
+.card,
+.card__img,
+.card__shadow--title {
+    @include card;
+}
+
+.card-grid {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 340px);
+    gap: 50px;
+    justify-content: center;
+    padding: 50px;
+    background-color: $background-card-color;
+    border-radius: 24px;
+
+
+    .card__shadow--title {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(10, 10, 10, 0) 42%, rgba(4, 4, 4, 0.205) 99.99%, rgba(0, 0, 0, 0.9) 100%);
+        color: $second-color;
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        padding: 20px;
+        position: relative;
+        bottom: 344px;
+    }
+}

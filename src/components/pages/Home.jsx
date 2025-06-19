@@ -1,6 +1,13 @@
+import Banner from "../Banner"
+import Card from "../Card"
+import '../style/main.scss'
+
 function Home() {
     return (
-        <h1>Page d'accueil</h1>
+        <main className="content">
+            <Banner imageSrc={'./src/assets/fond-nature.jpg'} title={"Chez vous, partout et ailleurs"}/>
+            <Card />
+        </main>
     )
 }
 
