@@ -4,7 +4,7 @@ import './style/Header.scss'
 function Header() {
     return (
         <header className="header">
-            <img src="src/assets/.LOGO.png" alt="Logo Kasa"/>
+            <img src="../src/assets/.LOGO.png" alt="Logo Kasa"/>
             <Navbar />
         </header>
     )

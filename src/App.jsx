@@ -5,6 +5,7 @@ import './App.scss'
 import Header from "./components/Header"
 import NotFoundPage from './components/pages/NotFoundPage'
 import Footer from './components/Footer'
+import Logements from './components/pages/Logements'
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <div className='App'>
       <Header />
      <Routes>
-      <Route path='/' element={<Home />}/>
+      <Route path='/' element={<Home />} />
+      <Route path='/logement/:id' element={<Logements />}></Route>
       <Route path='/about' element={<About />}/>
       <Route path='*' element={<NotFoundPage />}/>
      </Routes>

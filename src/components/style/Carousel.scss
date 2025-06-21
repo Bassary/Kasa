@@ -1,0 +1,50 @@
+@import './main.scss';
+
+.carousel {
+
+    height: 415px;
+
+
+
+    .carousel__img {
+
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+        border-radius: 25px;
+
+    }
+
+    .arrow {
+        display: flex;
+        position: relative;
+        bottom: 419px;
+        justify-content: space-between;
+        height: 100%;
+        align-items: center;
+
+        &__left,
+        &__right {
+            padding-left: 15px;
+            padding-right: 15px;
+            opacity: 0.5;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .slide-number {
+            height: 100%;
+            display: flex;
+            flex-direction: column-reverse;
+            padding-bottom: 15px;
+
+            p {
+                color: $second-color;
+                font-weight: 500;
+                font-size: 18px;
+            }
+        }
+    }
+}

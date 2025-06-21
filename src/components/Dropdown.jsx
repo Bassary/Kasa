@@ -18,9 +18,9 @@ function Dropdown({title, children}) { //component avec title et son enfant en p
             <div className="dropdown" onClick={toggleDropdown}> 
                 <h3>{title}</h3>
                 {/* //condition qui change l'état du logo arrow sellon sa class CSS */}
-                <img className={`dropdown__img ${isOpen ? "dropdown__img--open" : ""}`} src="./src/assets/arrow.svg"/> 
+                <img className={`dropdown__img ${isOpen ? "dropdown__img--open" : ""}`} src="../src/assets/arrow.svg"/> 
             </div>
-            <p className={`dropdown__title ${isOpen ? "dropdown__title--open" : "" }`}>{children}</p>
+            <div className={`dropdown__title ${isOpen ? "dropdown__title--open" : "" }`}>{children}</div>
             {/* //Idem : la class "dopdown__title" est part defaut, puis on ajout une condition si isOpen est true alors on revois la class "dropdown__title--open"  */}
         </div>
     )

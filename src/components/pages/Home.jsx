@@ -6,7 +6,7 @@ function Home() {
     return (
         <main className="content">
             <Banner imageSrc={'./src/assets/fond-nature.jpg'} title={"Chez vous, partout et ailleurs"}/>
-            <Card />
+            <Card key={Card}/>
         </main>
     )
 }
