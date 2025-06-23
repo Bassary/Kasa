@@ -6,7 +6,7 @@ function About() {
 
         <main className="content">
             <Banner imageSrc={'./src/assets/fond-nature-2.jpg'} />
-            <section className="section-dropdown">
+            <section className="section-dropdown column">
             <Dropdown title="Fiabilité">Les annonces postées sur Kasa garantissent une fiabilité totale.
                 Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes.
             </Dropdown>

@@ -1,8 +1,9 @@
 @import './main.scss';
 
-ul {
+.navbar {
     display: flex;
     gap: 57px;
+    align-items: center;
 
     li {
         list-style: none;

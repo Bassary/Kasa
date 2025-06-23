@@ -1,16 +1,24 @@
 @import './main.scss';
 
-.section-dropdown {
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.column {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.section-dropdown {
+    display: flex;
+    gap: 50px;
 
     .dropdown-container {
 
-        margin-left: 60px;
-        margin-right: 60px;
-        margin-bottom: -40px;
-        max-width: 1256px;
+        @include dropdown-column;
 
 
         .dropdown {
@@ -52,8 +60,4 @@
     }
 
 
-}
-
-.testdrop {
-    display: flex;
 }

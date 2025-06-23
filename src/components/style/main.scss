@@ -52,9 +52,23 @@ $background-card-color: #F6F6F6;
     background-color: $background-card-color;
 }
 
+@mixin dropdown-column() {
+    margin-bottom: -80px;
+    max-width: 1256px;
+    width: 100%;
+}
+
+@mixin dropdown-row() {
+    width: 50%;
+}
+
 
 // GENERAL **********************
 
 .content {
     @include margin-content();
+}
+
+li {
+    list-style: none;
 }

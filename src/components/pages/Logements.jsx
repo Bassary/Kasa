@@ -4,45 +4,56 @@ import Carousel from '../Carousel';
 import '../style/Carousel.scss';
 import { useState } from 'react';
 import Dropdown from '../Dropdown';
+import RatingStar from '../RatingStar';
+import '../style/Logements.scss'
+import '../style/Carousel.scss'
 
 function Logements() {
     const { id } = useParams();
     const logement = Data.find((logement) => logement.id === id);
     const [slide, setSlide] = useState(0);
+    const total = logement.pictures.length
 
     const nextSlide = () => {
-        setSlide((prevSlide) => (prevSlide + 1) % logement.pictures.length);
+        setSlide((prevSlide) => (prevSlide + 1) % total);
     };
 
     const prevSlide = () => {
-        setSlide((prevSlide) => (prevSlide - 1 + logement.pictures.length) % logement.pictures.length);
+        setSlide((prevSlide) => (prevSlide - 1 + total) % total);
     };
 
+    
     return (
         <main className='content'>
-            <div className='carousel'>
-                <Carousel slide={logement.pictures[slide]} key={logement.pictures[slide]} />
-                <div className="arrow">
-                    <img
-                        className="arrow__left" src="../src/assets/arrow-left.svg" onClick={prevSlide} alt="Previous"/>
-                    <div className='slide-number'>
-                        <p>{slide + 1} / {logement.pictures.length}</p>
-                    </div>
-                    <img
-                        className="arrow__right" src="../src/assets/arrow-right.svg" onClick={nextSlide} alt="Next"/>
-                </div>
-            </div>
+            <Carousel key={total} imageSrc={logement.pictures[slide]} index={slide + 1} totalIndex={total} nextImage={nextSlide} prewImage={prevSlide}/>
             <section className='information'>
-                <div>
-                    <h2>{logement.title}</h2>
-                    <p>{logement.location}</p>
-                </div>
+                <div className='section-info'>
+                    <div className='section-title-tag'>
+                        <div>
+                            <h2 className='title'>{logement.title}</h2>
+                            <p className='localisation'>{logement.location}</p>
+                        </div> 
+                        <ul className='tag'>{logement.tags.map((tag, index) => (
+                            <li className='tag__style' key={index}>{tag}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    
+                    <div className='section-host'>
+                        <div className='host'>
+                            <p className='host__name'>{logement.host.name}</p>
+                            <img className='host__profile' src={logement.host.picture} alt='image profil'/>
+                        </div>
+                        <RatingStar note={logement.rating}/>   
+                    </div>
+                </div>   
+                
                 <div className='section-dropdown'>
                     <Dropdown title="Description">{logement.description}</Dropdown>
                     <Dropdown title="Équipements">
-                        <ul>
-                            <li>{logement.equipments}</li>
-                        </ul>
+                        <ul className='list'>{logement.equipments.map((list, index) =>(
+                            <li key={index}>{list}</li>
+                        ))}</ul>
                     </Dropdown>
                 </div>
             </section>
@@ -52,49 +63,3 @@ function Logements() {
 }
 
 export default Logements;
-
-
-
-
-
-
-
-
-
-
-// import { useParams } from 'react-router-dom';
-// import Data from '../../back-end-data.json'
-// import Carousel from '../Carousel';
-// import '../style/Carousel.scss'
-// import { useState } from 'react';
-
-// function Logements() {
-//     // Utilisation du hook "useParams" pour extraire les paramètres de l'URL.
-//     // En locurance il va extraire le paramètre id
-//     const { id } = useParams();
-//     // Création d'une variable logement qui cherche dans notre talbeaux "Data"
-//     // un id qui est égale à celui de l'URL
-//     const logement = Data.find((logement) => logement.id === id)
-//     const [slide, setSlide] = useState(0)
-
-//     const nextSlide = () => {
-//         setSlide(slide + 1)
-//     }
-//     return (
-
-//        <div className='carousel'> {logement.pictures.map(picture => {
-        
-//         return (
-//             <Carousel slide={picture} key={picture} />  
-//         )
-        
-//        })}
-//        <div className="arrow">
-//             <img className="arrow__left" src="../src/assets/arrow-left.svg"></img>
-//             <img className="arrow__right" src="../src/assets/arrow-right.svg" onClick={nextSlide}></img>
-//         </div>
-//        </div>
-//     )
-// }
-
-// export default Logements;
