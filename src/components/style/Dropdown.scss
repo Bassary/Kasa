@@ -12,52 +12,51 @@
     align-items: center;
 }
 
-.section-dropdown {
+.row {
     display: flex;
     gap: 50px;
-
-    .dropdown-container {
-
-        @include dropdown-column;
+}
 
 
-        .dropdown {
-            background-color: $main-color;
-            color: $second-color;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
+.dropdown-container {
+    width: 100%;
+    max-width: 1256px;
 
-            &__img {
-                transition: all 0.5s ease;
+    .dropdown {
+        background-color: $main-color;
+        color: $second-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
 
-                &--open {
-                    transform: rotate(-180deg);
+        &__img {
+            transition: all 0.5s ease;
 
-                }
-            }
-
-            &__title {
-                @include dropdown;
-                opacity: 0;
-                transform: translateY(-60px);
-                transition: all 0.3s ease-in-out;
-
-                &--open {
-                    @include dropdown;
-                    opacity: 1;
-                    transform: translateY(0px);
-                    margin-bottom: 70px;
-                }
+            &--open {
+                transform: rotate(-180deg);
             }
         }
 
-    }
+        &__title {
+            @include dropdown;
+            opacity: 0;
+            transform: translateY(-60px);
+            transition: all 0.3s ease-in-out;
+            height: 0px;
 
+            &--open {
+                @include dropdown;
+                opacity: 1;
+                transform: translateY(0px);
+                margin-bottom: 20px;
+                height: fit-content;
+            }
+        }
+    }
 
 }

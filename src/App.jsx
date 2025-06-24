@@ -18,6 +18,7 @@ function App() {
       <Route path='/logement/:id' element={<Logements />}></Route>
       <Route path='/about' element={<About />}/>
       <Route path='*' element={<NotFoundPage />}/>
+      <Route path='/error' element={<NotFoundPage />}></Route>
      </Routes>
      <Footer />
     </div>

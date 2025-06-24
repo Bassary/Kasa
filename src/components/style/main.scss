@@ -52,16 +52,6 @@ $background-card-color: #F6F6F6;
     background-color: $background-card-color;
 }
 
-@mixin dropdown-column() {
-    margin-bottom: -80px;
-    max-width: 1256px;
-    width: 100%;
-}
-
-@mixin dropdown-row() {
-    width: 50%;
-}
-
 
 // GENERAL **********************
 
@@ -71,4 +61,145 @@ $background-card-color: #F6F6F6;
 
 li {
     list-style: none;
+}
+
+
+// MEDIA QUERY *************************
+
+@media (max-width: 1030px) {
+
+    .header {
+        margin: 20px 20px 0px 20px;
+
+        img {
+            height: 47px;
+        }
+
+        .navbar {
+            gap: 20px;
+
+            a {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .content {
+        margin: 30px 20px 30px 20px;
+        gap: 30px;
+
+        .banner {
+            height: 111px;
+
+            .banner__img,
+            .banner__shadow--title {
+                height: 111px;
+                border-radius: 10px;
+            }
+        }
+
+        h1 {
+            font-size: 24px;
+            padding: 15px;
+        }
+
+        .card-grid {
+            padding: 0;
+            gap: 20px;
+            background: none;
+        }
+    }
+
+    .carousel {
+        height: 255px;
+
+        .arrow {
+            bottom: 259px;
+
+            &__left,
+            &__right {
+                height: 24px;
+                cursor: none;
+                opacity: 1;
+            }
+        }
+    }
+
+    .section-info {
+        flex-direction: column;
+
+        .title {
+            font-size: 18px !important;
+            margin-bottom: 5px !important;
+        }
+
+        .localisation {
+            font-size: 14px !important;
+            margin-bottom: 15px !important;
+        }
+
+        .tag__style {
+            font-size: 10px !important;
+        }
+
+        .section-host {
+            flex-direction: row-reverse !important;
+            margin-top: 10px;
+            align-items: center !important;
+
+            .host {
+                gap: 5px !important;
+
+                &__profile {
+                    height: 32px !important;
+                    width: 32px !important;
+                }
+
+                &__name {
+                    font-size: 12px !important;
+                }
+
+            }
+
+
+
+            .star {
+                height: 18px;
+                width: 120px !important;
+            }
+        }
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 0px;
+        font-size: 13px;
+
+        .dropdown {
+            padding: 5px;
+        }
+    }
+
+    .not-found-page {
+
+        h1 {
+            font-size: 92px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        a {
+            font-size: 14px;
+        }
+    }
+
+
+    footer p {
+        font-size: 12px;
+    }
+
 }

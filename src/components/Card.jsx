@@ -7,8 +7,8 @@ function Card () {
         <div className='card-grid'>
             {Data && Data.map( data => {
                 return (
-                    <Link to={`/logement/${data.id}`}>
-                    <div className='card' id={data.id} key={data.id}>
+                    <Link to={`/logement/${data.id}`} key={data.id}>
+                    <div className='card' id={data.id}>
                         <img className='card__img' src={data.cover} alt='location'/>
                         <h3 className='card__shadow--title'>{data.title}</h3>
                     </div>

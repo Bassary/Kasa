@@ -1,8 +1,9 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Data from '../../back-end-data.json';
 import Carousel from '../Carousel';
 import '../style/Carousel.scss';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import Dropdown from '../Dropdown';
 import RatingStar from '../RatingStar';
 import '../style/Logements.scss'
@@ -10,8 +11,25 @@ import '../style/Carousel.scss'
 
 function Logements() {
     const { id } = useParams();
-    const logement = Data.find((logement) => logement.id === id);
+    const navigate = useNavigate();
+    const [logement, setLogement] = useState(null)
+
+    useEffect(() => {
+        const logement = Data.find((logement) => logement.id === id);
+        if (!logement) {
+            navigate('/error')
+        } else {
+            setLogement(logement)
+        }
+
+    }, [id, navigate]);
+    
     const [slide, setSlide] = useState(0);
+
+    if (!logement) {
+        return null;
+    }
+
     const total = logement.pictures.length
 
     const nextSlide = () => {
@@ -48,7 +66,7 @@ function Logements() {
                     </div>
                 </div>   
                 
-                <div className='section-dropdown'>
+                <div className='row'>
                     <Dropdown title="Description">{logement.description}</Dropdown>
                     <Dropdown title="Équipements">
                         <ul className='list'>{logement.equipments.map((list, index) =>(
