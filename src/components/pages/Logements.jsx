@@ -1,49 +1,52 @@
+import { useRef, useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Data from '../../back-end-data.json';
 import Carousel from '../Carousel';
-import '../style/Carousel.scss';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import Dropdown from '../Dropdown';
 import RatingStar from '../RatingStar';
-import '../style/Logements.scss'
-import '../style/Carousel.scss'
+import '../style/Logements.scss';
+import '../style/Carousel.scss';
 
 function Logements() {
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const [logement, setLogement] = useState(null)
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [logement, setLogement] = useState(null);
+  const arrowRef = useRef(null);
+  const [slide, setSlide] = useState(0);
 
-    useEffect(() => {
-        const logement = Data.find((logement) => logement.id === id);
-        if (!logement) {
-            navigate('/error')
-        } else {
-            setLogement(logement)
-        }
-
-    }, [id, navigate]);
-    
-    const [slide, setSlide] = useState(0);
-
-    if (!logement) {
-        return null;
+  useEffect(() => {
+    const logements = Data.find((logement) => logement.id === id);
+    if (!logements) {
+      navigate('/error');
+    } else {
+      setLogement(logements);
     }
+  }, [id, navigate]);
 
-    const total = logement.pictures.length
+  const total =  logement ? logement.pictures.length : 0;
 
-    const nextSlide = () => {
-        setSlide((prevSlide) => (prevSlide + 1) % total);
-    };
+  useEffect(() => {
+    if (total <= 2 && arrowRef.current) {
+      arrowRef.current.style.display = 'none';
+    }
+  }, [total]);
 
-    const prevSlide = () => {
-        setSlide((prevSlide) => (prevSlide - 1 + total) % total);
-    };
+  const nextSlide = () => {
+    setSlide((prevSlide) => (prevSlide + 1) % total);
+  };
+
+  const prevSlide = () => {
+    setSlide((prevSlide) => (prevSlide - 1 + total) % total);
+  };
+
+  if (!logement) {
+    return null;
+  }
 
     
     return (
         <main className='content'>
-            <Carousel key={total} imageSrc={logement.pictures[slide]} index={slide + 1} totalIndex={total} nextImage={nextSlide} prewImage={prevSlide}/>
+            <Carousel key={total} imageSrc={logement.pictures[slide]} index={slide + 1} totalIndex={total} nextImage={nextSlide} prewImage={prevSlide} ref={arrowRef}/>
             <section className='information'>
                 <div className='section-info'>
                     <div className='section-title-tag'>
